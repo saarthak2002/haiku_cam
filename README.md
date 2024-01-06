@@ -86,8 +86,8 @@ return 0;
 ```
 
 ### Hardware setup
-![Raspberry Pi hardware setup](img/circuit-diag.jpg)
+he hardware consists of a Raspberry Pi 3B running Raspbian GNU/Linux 11 (bullseye) connected to a Pi camera module, a button, and a 220x176 LCD display with an ILI9225 controller:
 
-The hardware consists of a Raspberry Pi 3B running Raspbian GNU/Linux 11 (bullseye) connected to a Pi camera module, a button, and a 220x176 LCD display with an ILI9225 controller:
+![Raspberry Pi hardware setup](img/circuit-diag.jpg)
 
 ![Raspberry Pi hardware setup](img/circuit-hardware.jpg)
