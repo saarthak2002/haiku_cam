@@ -13,7 +13,6 @@ def lambda_handler(event, context):
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
     img_url = f'https://{bucket}.s3.amazonaws.com/{key}'
-    print('THE URL IS: {}'.format(img_url))
     
     url = "https://api.openai.com/v1/chat/completions"
     headers = {
@@ -48,8 +47,8 @@ def lambda_handler(event, context):
         "img_url": img_url,
         "haiku": haiku
     }
+    
     return {
         'statusCode': 200,
         'body': json.dumps(output)
     }
-
