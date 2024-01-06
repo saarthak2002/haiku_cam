@@ -1,4 +1,7 @@
 # Haiku Cam
+![Grid of Haiku Cam photos](img/img-collage.png)
+
+Haiku Cam is an AI-powered, Raspberry Pi-based IoT device that writes poetry about the images it captures. The device communicates with a cloud-powered AWS backend infrastructure for the processing and storage of images. An on-board LCD panel displays the generated Haikus and a QR code to view the captured images.
 
 ## AWS Cloud Setup
 ![AWS Lambda setup](img/infra-lambda.png)
@@ -86,8 +89,15 @@ return 0;
 ```
 
 ### Hardware setup
-he hardware consists of a Raspberry Pi 3B running Raspbian GNU/Linux 11 (bullseye) connected to a Pi camera module, a button, and a 220x176 LCD display with an ILI9225 controller:
+The hardware consists of a Raspberry Pi 3B running Raspbian GNU/Linux 11 (bullseye) connected to a Pi camera module, a button, and a 220x176 LCD display with an ILI9225 controller:
 
 ![Raspberry Pi hardware setup](img/circuit-diag.jpg)
 
 ![Raspberry Pi hardware setup](img/circuit-hardware.jpg)
+
+### Acknowledgements
+*Raspberry-ili9225spi by nopnop2002* [[Link](https://github.com/nopnop2002/Raspberry-ili9225spi)]
+
+### Future work
+- Design and 3D print an enclosure for the device to replace the present Lego enclosure
+- Make framing the shot easier and write an application that converts the stored image and poem history into a well-presented format
