@@ -1,12 +1,58 @@
 # Haiku Cam
 ![Grid of Haiku Cam photos](img/img-collage.png)
 
-Haiku Cam is an AI-powered, Raspberry Pi-based IoT device that writes poetry about the images it captures. The device communicates with a cloud-powered AWS backend infrastructure for the processing and storage of images. An on-board LCD panel displays the generated Haikus and a QR code to view the captured images.
+Haiku Cam is an AI-powered, Raspberry Pi-based IoT device that writes poetry about the images it captures. The device communicates with an AWS backend for processing and storage of images on the cloud. An on-board LCD panel displays the generated Haikus and a QR code to view the captured images.
 
 ## AWS Cloud Setup
 ![AWS Lambda setup](img/infra-lambda.png)
 
 The Haiku Cam backend uses a serverless architecture powered by AWS Lambda for processing images into poems. The Raspberry Pi captures an image using the attached camera and uploads it to an Amazon S3 storage bucket. This triggers an AWS Lambda function (*lambda_function.py*), which processes the image and sends the response to an SQS queue destination. The client side code running on the Raspberry Pi (*aws-hc.py*) polls the SQS queue and interfaces with the hardware to display the generated poem and a QR code, which users can scan to view the captured image stored in the S3 bucket.
+
+## Examples
+Here are some images captured by Haiku Cam and the poems it generated for them.
+
+![A road with cars next to some houses](img/fcefcc854f.jpg)
+```
+Urban oasis,
+Greenery hugs the concrete—
+Nature's soft whisper.
+```
+
+![A golden mechanical cat with an Oreo wrapper on top](img/758b299bc1.jpg)
+```
+Golden cat waves on,
+Oreo moon rides the sky,
+Silent night's snack time.
+```
+
+![A dog curled up sleeping](img/c4d32df4b7.jpg)
+```
+Soft slumbering pup,
+In dreams of chase, tail curls tight,
+Peaceful rest till dawn.
+```
+![A dog looking up at the camera](img/d752e86892.jpg)
+```
+Gentle eyes that speak,
+Soft companion in the night,
+Peace in silent gaze.
+```
+![A large blooming white flower](img/ce917abb9b.jpg)
+```
+Petals soft and bright,
+Blooms whispering to the light,
+Nature's pure delight.
+```
+
+![Blurry lines of code on a laptop screen](img/c3dc0efb1f.jpg)
+```
+Bright lines of code gleam,
+A dance of logic and light,
+Quiet mind at work.
+```
+
+## Setup
+The following sections contain some notes and instructions about the hardware and software setup for Haiku Cam.
 
 ### Create AWS Lambda deployment package
 To create the deployment package for AWS Lambda, run the following commands in a new directory containing just *lambda_function.py* (at the same level as *lambda_function.py*):
@@ -98,6 +144,9 @@ The hardware consists of a Raspberry Pi 3B running Raspbian GNU/Linux 11 (bullse
 ### Acknowledgements
 *Raspberry-ili9225spi by nopnop2002* [[Link](https://github.com/nopnop2002/Raspberry-ili9225spi)]
 
+*GPT-4 Turbo by OpenAI [[Link](https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo)]*
+
 ### Future work
 - Design and 3D print an enclosure for the device to replace the present Lego enclosure
 - Make framing the shot easier and write an application that converts the stored image and poem history into a well-presented format
+- Add a thermal printer to print the poems- kind of like a polaroid
