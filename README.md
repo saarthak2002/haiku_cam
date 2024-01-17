@@ -3,6 +3,8 @@
 
 Haiku Cam is an AI-powered, Raspberry Pi-based IoT device that writes poetry about the images it captures. The device communicates with an AWS backend for processing and storage of images on the cloud. An on-board LCD panel displays the generated Haikus and a QR code to view the captured images.
 
+[Watch a demo of Haiku Cam in action](https://youtu.be/7163OlYQmVE).
+
 ## AWS Cloud Setup
 ![AWS Lambda setup](img/infra-lambda.png)
 
